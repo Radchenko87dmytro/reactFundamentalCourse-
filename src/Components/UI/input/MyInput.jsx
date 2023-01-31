@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-import "./MyInput.scss"
+//import  "./MyInput.scss";
+import classes from "./MyInput.module.css";
 
-// const MyInput = (props) => {
-//     return(
-//        <MyInput className= "myInput" {...props}/>
+const MyInput = React.forwardRef((props, ref) => {
+    return(
+        <input ref={ref} className= {classes.myInput} {...props}/>
        
        
-//     )
-// }
+    );
+});
 
 
-//export default MyInput
+export default MyInput
