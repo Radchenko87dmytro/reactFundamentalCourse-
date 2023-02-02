@@ -4,7 +4,7 @@ import ClassCounter from './Components/ClassCounter';
 import './App.scss';
 import PostItem from './Components/PostItem';
 import PostList from './Components/PostList';
-import  classes from "./Components/UI/button/MyButton.module.css";
+//import  classes from "./Components/UI/button/MyButton.module.css";
 import MyInput from './Components/UI/input/MyInput';
 import Counter from './Components/Counter';
 import MyButton from './Components/UI/button/MyButton';
@@ -31,14 +31,17 @@ function App() {
     //     setValue(event.target.value);
     // }
 
-    const [title, setTitle] = useState("");
-    const bodyInputRef = useRef();
+    const [post, setPost] = useState({title: "", body: ""})
+    // const [title, setTitle] = useState("");
+    // const [body, setBody] = useState("");
+
     const addNewPost = (e) => {
         e.preventDefault()
-        console.log(title)
-        console.log(bodyInputRef.current.value)     
-       //   
+        setPosts([...posts, {...post, id: Date.now()}])  // expand the old array (...posts) and add in the endOfArray a (newPost)
+        setPost({title: "", body: ""});
     }
+
+
    
     return(
         <div className='App' >
@@ -51,13 +54,14 @@ function App() {
                 <MyInput 
                     type="text" 
                     placeholder='Name of post'
-                    value={title}
-                    onChange={e => setTitle(e.target.value)}
+                    value={post.title}
+                    onChange={e => setPost({...post, title: e.target.value})}
                     />
                     {/* <input ref={bodyInputRef}></input> */}
                     {/* Unmanaged Component/uncontrolled component */}
                 <MyInput 
-                    ref={bodyInputRef}
+                    value={post.body}
+                    onChange={e => setPost({...post, body: e.target.value})}
                     type="text" 
                     placeholder='Description of post'/>
                 {/*style={{textAlign: 'center'}} */}
