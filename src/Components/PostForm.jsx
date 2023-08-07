@@ -17,7 +17,7 @@ const PostForm = ({create}) => {
     }
 
     return (
-        <form>
+        <form  style={{margin: '0px 0'}}>
                 {/* managed component */}
                 <MyInput 
                     type="text" 
