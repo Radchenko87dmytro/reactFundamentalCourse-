@@ -1,4 +1,5 @@
 .myBtn{
+    display: inline;
     margin: 15px 200px;
     padding: 10px 25px;
     color: teal;

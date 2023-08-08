@@ -13,6 +13,7 @@ import MySelect from './Components/UI/select/MySelect';
 import PostFilter from './Components/PostFilter';
 import MyModal from './Components/UI/MyModal/MyModal';
 import { usePosts } from './hooks/usePost';
+import axios from "axios";
 
 function App() {
     
@@ -31,6 +32,12 @@ function App() {
         setModal(false)
     }
 
+    async function fetchPosts() {
+        const response = await axios.get("https://jsonplaceholder.typicode.com/posts")
+        setPosts(response.data);
+
+    }
+
     //We are getting post from daughter component
     const removePost = (post) => {
         setPosts(posts.filter(p => p.id !== post.id))
@@ -38,6 +45,7 @@ function App() {
 
     return (
         <div className='App' >
+            <button onClick={fetchPosts}>GET POSTS</button>
             <MyButton style={{marginTop: "30px"}} onClick={() => setModal(true)}>
                 Create user
             </MyButton>
