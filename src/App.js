@@ -12,33 +12,20 @@ import PostForm from './Components/PostForm';
 import MySelect from './Components/UI/select/MySelect';
 import PostFilter from './Components/PostFilter';
 import MyModal from './Components/UI/MyModal/MyModal';
+import { usePosts } from './hooks/usePost';
 
 function App() {
-    //  constructor(props){}
-    //       this.state
+    
     const[posts, setPosts] = useState(  [
         {id: 1, title: "Java", body: "First title"},
         {id: 2, title: "Python", body: "Second title"},
         {id: 3, title: "C++", body: "Third title"},
     ])
 
-    
     const [filter, setFilter] = useState({sort: "", query: ""})
     const [modal, setModal] = useState(false)
-
-    const sortedPosts = useMemo(() => {
-        console.log("worked function SortedPosts")
-        if(filter.sort) {
-            return [...posts].sort((a, b) => a[filter.sort].localeCompare(b[filter.sort]))
-        }
-        return posts;
-    }, [filter.sort, posts])
-
-    const sortedAndSearchedPosts = useMemo(() => {
-        return sortedPosts.filter(post => post.title.toLowerCase().includes(filter.query.toLowerCase()))
-    }, [filter.query, sortedPosts])
-
-   
+    const sortedAndSearchedPosts = usePosts(posts, filter.sort, filter.query)
+    
     const createPost = (newPost)=>{
         setPosts([...posts, newPost])
         setModal(false)
@@ -49,7 +36,6 @@ function App() {
         setPosts(posts.filter(p => p.id !== post.id))
     }
 
-   
     return (
         <div className='App' >
             <MyButton style={{marginTop: "30px"}} onClick={() => setModal(true)}>
