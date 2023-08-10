@@ -1,8 +1,9 @@
 import React, { Component } from 'react'; 
 import MyButton from './UI/button/MyButton';
+import "../App.scss"
 
 const PostItem= (props)=>{
-    console.log(props)
+    //console.log(props)
     return(
         <div className='post'>
                 <div className='post_content'>

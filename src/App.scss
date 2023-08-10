@@ -4,8 +4,6 @@
   box-sizing: border-box;
 }
 
-
-
 .App {
   //width: 800px;
   //background-color: cadetblue;
@@ -13,22 +11,27 @@
     display: flex;
     //justify-content: center;
     
-    
   }
   .post{
-  display: inline-block;
+  display: flex;
   padding: 15px;
   border: 5px solid teal;
-  margin: 10px 200px 0px 200px ;
+  margin: 10px 100px 0px 100px ;
   justify-content: space-between;
   align-items: center;
   }
+
+  // .post_content{
+  //   display: inline;
+  // }
+  // .post_btns{
+  //   display: inline;
+  // }
+
   h1 {
     text-align: center; 
   }
 
- 
-  
   .post-enter {
     transform: translateX(-350px);
   }
@@ -44,7 +47,21 @@
     transition: all 500ms ease-in;
   }
   
- 
+  .page__wrapper{
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+  }
+  .page{
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid teal;
+    cursor: pointer;
+  }
+  .page__current{
+    border: 2px solid orange;
+    font-weight: bold;
+  }
 
 }
 
