@@ -5,13 +5,16 @@
 }
 
 .App {
-  //width: 800px;
-  //background-color: cadetblue;
+  width: 800px;
+  }
+  
     #root {
     display: flex;
-    //justify-content: center;
-    
-  }
+    flex-direction: column;
+    text-align: center;
+    }  
+  
+  
   .post{
   display: flex;
   padding: 15px;
@@ -63,7 +66,25 @@
     font-weight: bold;
   }
 
-}
+  .navbar{
+    height: 50px;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    background: lightgray;
+  }
+  .navbar__links a{
+    margin-left: auto;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+    &:active{
+      color: gold;
+    }
+  }
+
+
 
 
 
