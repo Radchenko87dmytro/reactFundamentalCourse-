@@ -16,20 +16,23 @@
   
   
   .post{
-  display: flex;
+  display: inline-block;
   padding: 15px;
   border: 5px solid teal;
   margin: 10px 100px 0px 100px ;
   justify-content: space-between;
   align-items: center;
+  
   }
 
-  // .post_content{
-  //   display: inline;
-  // }
-  // .post_btns{
-  //   display: inline;
-  // }
+  .post_content{
+    display: flex;
+    
+  }
+  .post_btns{
+    display: flex;
+    
+  }
 
   h1 {
     text-align: center; 
@@ -72,13 +75,14 @@
     display: flex;
     align-items: center;
     padding: 0 15px;
-    background: lightgray;
+    background: rgb(160, 157, 157);
   }
   .navbar__links a{
     margin-left: auto;
     padding: 10px;
     color: white;
     text-decoration: none;
+    font-weight: bold;
     &:active{
       color: gold;
     }
